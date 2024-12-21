@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+<!-- Start Preloader -->
+<div class="preloader">
+  <div class="book-style">
+    <div class="inner">
+      <div class="left"></div>
+      <div class="middle"></div>
+      <div class="right"></div>
+    </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
+<!-- End Preloader -->
+
+{% block content %}
+  <!-- Start Main Banner -->
+  <section class="main-banner" style="background-image: url(assets/img/bg/banner.jpg);">
+    {% include 'components/login/main-banner.html' %}
+    {% include 'components/login/blshape.html' %}
+    {% include 'components/login/brshape.html' %}
+  </section>
+  <!-- End Main Banner -->
+
+  <!-- START LOGIN -->
+  <section class="login_register section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 col-xs-12 wow fadeIn">
+          <div class="login">
+            <h4 class="login_register_title">{{ title }}</h4>
+            <div class="row">
+                {% for company in companies %}
+                    <div class="col-md-3 d-flex justify-content-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ company.logo.url }}" height="250px" class="card-img-top" alt="{{ company.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ company.name }}</h5>
+                                <button hx-get="{% url 'select_presentation' company.id %}" hx-target="#sunum-list" hx-swap="innerHTML" class="btn btn-primary">Seç</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="sunum-list">
+                            
+            </div>
+          </div>
+        </div>
+        <!-- - END COL -->
+      </div>
+      <!-- - END ROW -->
+    </div>
+    <!-- - END CONTAINER -->
+  </section>
+  <!-- END LOGIN -->
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eğitim Sertifikası</title>
+  </head>
+  <body style="font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; color: #333;">
+    <!-- Sertifika Başlık -->
+    <div style="background-color: #2C3E50; color: white; padding: 40px 20px; font-size: 32px;">
+      <h1 style="margin: 0;">Eğitim Sertifikası</h1>
+      <p style="font-size: 18px;">Başarıyla Tamamlandı</p>
+    </div>
+
+    <!-- Sertifika İçeriği -->
+    <div style="background-color: white; margin: 30px auto; padding: 40px; width: 80%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <!-- Karne Başlığı -->
+      <h1 style="text-align: center; font-size: 28px; color: #2980B9;">Karne</h1>
+  
+      <!-- Öğrenci Bilgileri -->
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+          <tr style="border-bottom: 1px solid #ddd;">
+              <th style="text-align: left; font-size: 20px; padding: 10px;">Sertifika Sahibi</th>
+              <td style="font-size: 20px; padding: 10px;">{{ participant.name|upper }}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+              <th style="text-align: left; font-size: 20px; padding: 10px;">Eğitim Adı</th>
+              <td style="font-size: 20px; padding: 10px;">{{ presentation.name|upper }}</td>
+          </tr>
+          <tr>
+              <th style="text-align: left; font-size: 20px; padding: 10px;">Tarih</th>
+              <td style="font-size: 20px; padding: 10px;">{{ participant.created_at|date:'d.m.Y' }}</td>
+          </tr>
+      </table>
+  
+      <!-- Başarı Durumu -->
+      <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+          <thead>
+              <tr style="background-color: #f9f9f9; border-bottom: 2px solid #ddd;">
+                  <th style="font-size: 18px; text-align: left; padding: 10px; word-wrap: break-word;">Soru</th>
+                  <th style="font-size: 18px; text-align: center; padding: 10px; word-wrap: break-word;">Cevap</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for answer in answers %}
+              <tr style="border-bottom: 1px solid #ddd;">
+                  <td style="font-size: 18px; text-align: left; padding: 10px; word-wrap: break-word;">{{ answer.question.question_text }}</td>
+                  <td style="font-size: 18px; padding: 10px; text-align: left; word-wrap: break-word;">{{ answer.answer_text }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+    </div>
+  
+  
+
+    <!-- Sertifika Çıktısı Butonu -->
+    <div style="margin-top: 40px;">
+      <button style="background-color: #2980B9; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer;">Sertifikayı Yazdır</button>
+    </div>
+  </body>
+</html>

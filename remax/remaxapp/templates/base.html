@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'components/css.html' %}
+    <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <!-- Start Preloader -->
+    <div class="preloader">
+      <div class="book-style">
+        <div class="inner">
+          <div class="left"></div>
+          <div class="middle"></div>
+          <div class="right"></div>
+        </div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- Start Header -->
+
+    {% if show_navbar %}
+      {% include 'components/base/navbar.html' %}
+    {% endif %}
+
+    <!-- End Header -->
+    {% block content %}
+      <!-- Start Home Banner -->
+      <section class="home-banner hbstyle-2" style="background-image: url(assets/img/bg/banner.jpg);">
+        {% include 'components/base/home-banner.html' %}
+      </section>
+      <!-- End Home Banner -->
+
+      <!-- Start Partners -->
+      <section class="container partner-style-2 wow fadeIn">
+        <div class="row">
+          <div class="col-xl-10 mx-auto partners owl-carousel">
+            {% for company in companies %}
+              <div class="client-item">
+                <a href="#"><img src="{{ company.logo.url }}" height="100" alt="client" /></a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <br />
+      <br />
+
+      <!-- Start Review -->
+      {% comment %} <section class="review section-padding">
+        {% include 'components/base/students-says.html' %}
+        <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </section> {% endcomment %}
+      <!-- Start Review -->
+
+      <!-- End Cta -->
+    {% endblock %}
+    <br />
+    <br />
+    <!-- Start Footer -->
+    {% if show_navbar %}
+      <section class="footer fstyle-2">
+        {% include 'components/base/footer.html' %}
+      </section>
+    {% endif %}
+    <!-- End Footer -->
+
+    <!-- scripts js -->
+    {% include 'components/js.html' %}
+
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+  </body>
+</html>

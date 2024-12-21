@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% comment %}! BU CLASS SAYFASI HYAZIR TEMPLATEDEKİ COURS DETAILS SAYFASI İSTENİLENE GÖRE UYARLANACAK{% endcomment %}
+
+<!-- Start Preloader -->
+<div class="preloader">
+  <div class="book-style">
+    <div class="inner">
+      <div class="left"></div>
+      <div class="middle"></div>
+      <div class="right"></div>
+    </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
+<!-- End Preloader -->
+
+{% block content %}
+  <!-- Start Main Banner -->
+  <section class="main-banner" style="background-image: url(assets/img/bg/banner.jpg);">
+    {% include 'components/sinif/sinif-banner.html' %}
+
+    {% include 'components/sinif/brshape.html' %}
+  </section>
+  <!-- End Main Banner -->
+
+  <!-- Start Courses -->
+  <section class="courses-details section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 wow fadeIn">
+          {% include 'components/sinif/scourse-image.html' %}
+
+          {% include 'components/sinif/scourse-meta.html' %}
+          <!-- End Meta -->
+
+          <h2 class="scourse-title">The Complete Web Devoloper Guideline 2024</h2>
+
+          <nav class="cd_tab">
+            {% include 'components/sinif/tab-kismi.html' %}
+          </nav>
+
+          <div class="tab-content" id="nav-tabContent">
+            {% include 'components/sinif/tab-overview.html' %}
+
+            <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab" tabindex="0">
+              <div class="cd_rating">
+                <h3>Student's Reviews</h3>
+                {% include 'components/sinif/tab-students-reviews.html' %}
+
+                <div class="rating_list">
+                  {% include 'components/sinif/tab-reviews.html' %}
+
+                  <!-- End Rating Item -->
+                </div>
+                <!-- End Rating List -->
+
+                {% include 'components/sinif/add-review.html' %}
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-instructor" role="tabpanel" aria-labelledby="nav-instructor-tab" tabindex="0">
+              <div class="cd_instructor">
+                {% include 'components/sinif/tab-instructor-img.html' %}
+
+                {% include 'components/sinif/tab-instructor-content.html' %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 wow fadeIn">
+          {% include 'components/sinif/course-features.html' %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Courses -->
+{% endblock %}

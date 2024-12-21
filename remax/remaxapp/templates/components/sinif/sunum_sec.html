@@ -1,0 +1,20 @@
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Sunum Adı</th>
+          <th scope="col">İşlem</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sunum in sunumlar %}
+        <tr>
+          <td>{{ sunum.name }}</td>
+          <td>
+            <a href="{% url 'create_classroom' company.id sunum.id %}" class="btn btn-primary btn-sm">Seç</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>

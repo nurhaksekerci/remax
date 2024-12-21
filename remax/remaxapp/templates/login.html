@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+<!-- Start Preloader -->
+<div class="preloader">
+  <div class="book-style">
+    <div class="inner">
+      <div class="left"></div>
+      <div class="middle"></div>
+      <div class="right"></div>
+    </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
+<!-- End Preloader -->
+
+{% block content %}
+  <!-- Start Main Banner -->
+  <section class="main-banner" style="background-image: url(assets/img/bg/banner.jpg);">
+    {% include 'components/login/main-banner.html' %}
+    {% include 'components/login/blshape.html' %}
+    {% include 'components/login/brshape.html' %}
+  </section>
+  <!-- End Main Banner -->
+
+  <!-- START LOGIN -->
+  <section class="login_register section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-xs-12 wow fadeIn">
+          <div class="login">
+            <h4 class="login_register_title">Already a member? Sign in:</h4>
+            {% if messages %}
+              {% for message in messages %}
+                  <p style="color: red;">{{ message }}</p>
+              {% endfor %}
+          {% endif %}
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="contact-name">Username</label>
+                <input type="text" id="contact-name" placeholder="Enter Username" class="form-control" name="username" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Password</label>
+                <input type="password" placeholder="Enter Password" id="contact-email" class="form-control" name="password" />
+              </div>
+              <div class="form-group col-lg-12">
+                <button class="bg_btn bt" type="submit" name="submit">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- - END COL -->
+      </div>
+      <!-- - END ROW -->
+    </div>
+    <!-- - END CONTAINER -->
+  </section>
+  <!-- END LOGIN -->
+{% endblock %}
