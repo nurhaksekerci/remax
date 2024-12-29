@@ -1,0 +1,28 @@
+{% for value in obj.values %}
+    <td class="text-center">
+        {% if value|slice:":20" == '/media/company_logos' %}
+            <a href="http://127.0.0.1:8000{{ value }}" target="_blank">Logo</a>
+        {% else %}
+            {{ value }}
+        {% endif %}
+    </td>
+{% endfor %}
+<td>
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'update_company' obj.id %}" class="btn btn-sm btn-info">Güncelle</a>
+        </div>
+        <div class="col">
+            <button hx-get="{% url 'delete_company' obj.id %}" hx-target="#obj-{{obj.id}}" hx-swap="innerHTML" class="btn btn-sm btn-danger">   
+                {% if obj.is_active %}
+                    Sil
+                {% else %}
+                    Yükle
+                {% endif %}
+            </button>
+        </div>
+        <div class="col-5">
+            <a href="{% url 'create_presentation' obj.id %}" class="btn btn-sm btn-success">Sunumlar</a>     
+        </div>
+    </div>
+</td>
